@@ -1,0 +1,13 @@
+{
+    "name": "ruff-1294-v30",
+    "version": "0.1.0",
+    "description": "Ruff 1294 V30 Metadata",
+    "author": "Nanchao Inc.",
+    "dependencies": {
+		"rap-tm4c1294-v1": "*"
+    },
+    "ruff": {
+        "dependencies": {
+        }
+    }
+}
