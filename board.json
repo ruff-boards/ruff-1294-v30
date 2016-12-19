@@ -155,8 +155,8 @@
                     "bind": "PM4/gpio",
                     "args": {
                         "direction": "out",
-                        "level": "low",
-                        "activeLow": false
+                        "level": "high",
+                        "activeLow": true
                     }
                 }
             }
@@ -189,8 +189,8 @@
                     "bind": "PL5/gpio",
                     "args": {
                         "direction": "out",
-                        "level": "low",
-                        "activeLow": false
+                        "level": "high",
+                        "activeLow": true
                     }
                 }
             }
