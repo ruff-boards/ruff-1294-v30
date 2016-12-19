@@ -165,6 +165,24 @@
             }
         },
         {
+            "id": "PL5",
+            "model": "ruff-gpio",
+            "driver": "mcu-gpio",
+            "inputs": {
+                "pin": {
+                    "type": "number",
+                    "args": {
+                        "pin": "L5"
+                    }
+                }
+            },
+            "outputs": {
+                "gpio": {
+                    "type": "gpio"
+                }
+            }
+        },
+        {
             "id": "CTRL_LED1",
             "model": "ruff-led-gpio",
             "driver": "led-gpio",
