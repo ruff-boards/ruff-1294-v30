@@ -3,8 +3,9 @@
     "id": "ruff-1294-v30",
     "model": "ruff-1294-v30",
     "preloads": {
-        "UART3": "UART3/uart",
+        "UART4": "UART4/uart",
         "UART5": "UART5/uart",
+        "UART7": "UART7/uart",
         "DIN0": "DIN0/gpio",
         "DIN1": "DIN1/gpio",
         "DIN2": "DIN2/gpio",
@@ -526,7 +527,7 @@
             }
         },
         {
-            "id": "UART3",
+            "id": "UART4",
             "model": "ruff-uart",
             "driver": "mcu-uart",
             "inputs": {
@@ -534,6 +535,24 @@
                     "type": "string",
                     "args": {
                         "path": "/dev/ttyS2"
+                    }
+                }
+            },
+            "outputs": {
+                "uart": {
+                    "type": "uart"
+                }
+            }
+        },
+        {
+            "id": "UART7",
+            "model": "ruff-uart",
+            "driver": "mcu-uart",
+            "inputs": {
+                "device": {
+                    "type": "string",
+                    "args": {
+                        "path": "/dev/ttyS5"
                     }
                 }
             },
