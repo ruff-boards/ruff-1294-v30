@@ -3,9 +3,6 @@
     "id": "ruff-1294-v30",
     "model": "ruff-1294-v30",
     "preloads": {
-        "UART4": "UART4/uart",
-        "UART5": "UART5/uart",
-        "UART7": "UART7/uart",
         "DIN0": "DIN0/gpio",
         "DIN1": "DIN1/gpio",
         "DIN2": "DIN2/gpio",
@@ -29,6 +26,32 @@
         "RST1": "RST1/gpio",
         "CTRL_PWR1": "CTRL_PWR1/gpio",
         "RS485_C_EN0": "RS485_C_EN0/gpio"
+    },
+    "outputs": {
+        "DIN0": "DIN0/gpio",
+        "DIN1": "DIN1/gpio",
+        "DIN2": "DIN2/gpio",
+        "DIN3": "DIN3/gpio",
+        "DIN4": "DIN4/gpio",
+        "DIN5": "DIN5/gpio",
+        "DIN6": "DIN6/gpio",
+        "DIN7": "DIN7/gpio",
+        "DIN8": "DIN8/gpio",
+        "DIN9": "DIN9/gpio",
+        "DIN10": "DIN10/gpio",
+        "DIN11": "DIN11/gpio",
+        "DIN12": "DIN12/gpio",
+        "DIN13": "DIN13/gpio",
+        "DIN14": "DIN14/gpio",
+        "DIN15": "DIN15/gpio",
+        "AVIN0": "ruff-adc/AVIN0",
+        "AVIN1": "ruff-adc/AVIN1",
+        "AVIN2": "ruff-adc/AVIN2",
+        "AVIN3": "ruff-adc/AVIN3",
+        "AVIN4": "ruff-adc/AVIN4",
+        "AVIN5": "ruff-adc/AVIN5",
+        "AVIN6": "ruff-adc/AVIN6",
+        "AVIN7": "ruff-adc/AVIN7"
     },
     "devices": [
         {
@@ -74,15 +97,15 @@
             "driver": "mcu-adc",
             "args": {
                 "referenceVoltage": 5,
-                "pinConfig" : {
-                    "AIN0" : 0,
-                    "AIN1" : 1,
-                    "AIN2" : 2,
-                    "AIN3" : 3,
-                    "AIN4" : 15,
-                    "AIN5" : 14,
-                    "AIN6" : 13,
-                    "AIN7" : 12
+                "pinConfig": {
+                    "AVIN0": 0,
+                    "AVIN1": 1,
+                    "AVIN2": 2,
+                    "AVIN3": 3,
+                    "AVIN4": 15,
+                    "AVIN5": 14,
+                    "AVIN6": 13,
+                    "AVIN7": 12
                 }
             },
             "inputs": {
@@ -94,28 +117,28 @@
                 }
             },
             "outputs": {
-                "AIN0": {
+                "AVIN0": {
                     "type": "adc"
                 },
-                "AIN1": {
+                "AVIN1": {
                     "type": "adc"
                 },
-                "AIN2": {
+                "AVIN2": {
                     "type": "adc"
                 },
-                "AIN3": {
+                "AVIN3": {
                     "type": "adc"
                 },
-                "AIN4": {
+                "AVIN4": {
                     "type": "adc"
                 },
-                "AIN5": {
+                "AVIN5": {
                     "type": "adc"
                 },
-                "AIN6": {
+                "AVIN6": {
                     "type": "adc"
                 },
-                "AIN7": {
+                "AVIN7": {
                     "type": "adc"
                 }
             }
@@ -545,6 +568,24 @@
             }
         },
         {
+            "id": "UART5",
+            "model": "ruff-uart",
+            "driver": "mcu-uart",
+            "inputs": {
+                "device": {
+                    "type": "string",
+                    "args": {
+                        "path": "/dev/ttyS3"
+                    }
+                }
+            },
+            "outputs": {
+                "uart": {
+                    "type": "uart"
+                }
+            }
+        },
+        {
             "id": "UART7",
             "model": "ruff-uart",
             "driver": "mcu-uart",
@@ -570,7 +611,7 @@
                 "pin": {
                     "type": "number",
                     "args": {
-                        "pin": "K7"
+                        "pin": "H1"
                     }
                 }
             },
@@ -617,24 +658,6 @@
             }
         },
         {
-            "id": "UART5",
-            "model": "ruff-uart",
-            "driver": "mcu-uart",
-            "inputs": {
-                "device": {
-                    "type": "string",
-                    "args": {
-                        "path": "/dev/ttyS3"
-                    }
-                }
-            },
-            "outputs": {
-                "uart": {
-                    "type": "uart"
-                }
-            }
-        },
-        {
             "id": "RS485_C_EN0",
             "model": "ruff-gpio",
             "driver": "mcu-gpio",
@@ -653,32 +676,64 @@
             }
         },
         {
-            "id": "RS485",
-            "model": "ruff-rs485-uart",
+            "id": "RS485-0",
+            "model": "rs485",
             "driver": "rs485-uart",
             "args": {
                 "txEnableControl": true,
                 "txActiveLevel": 1
             },
             "inputs": {
-                "gpio": {
-                    "type": "gpio",
-                    "args": {
-                        "direction": "out",
-                        "level": "low"
-                    },
-                    "bind": "RS485_C_EN0/gpio"
-                },
                 "uart": {
                     "type": "uart",
+                    "bind": "UART5/uart",
                     "args": {
-                        "baudRate": 57600,
+                        "baudRate": 9600,
                         "stopBits": 1,
                         "dataBits": 8,
                         "parity": "none",
                         "flowControl": "none"
-                    },
-                    "bind": "UART5/uart"
+                    }
+                }
+            }
+        },
+        {
+            "id": "RS485_C_EN1",
+            "model": "ruff-gpio",
+            "driver": "mcu-gpio",
+            "inputs": {
+                "pin": {
+                    "type": "number",
+                    "args": {
+                        "pin": "K2"
+                    }
+                }
+            },
+            "outputs": {
+                "gpio": {
+                    "type": "gpio"
+                }
+            }
+        },
+        {
+            "id": "RS485-1",
+            "model": "rs485",
+            "driver": "rs485-uart",
+            "args": {
+                "txEnableControl": true,
+                "txActiveLevel": 1
+            },
+            "inputs": {
+                "uart": {
+                    "type": "uart",
+                    "bind": "UART7/uart",
+                    "args": {
+                        "baudRate": 9600,
+                        "stopBits": 1,
+                        "dataBits": 8,
+                        "parity": "none",
+                        "flowControl": "none"
+                    }
                 }
             }
         },
@@ -690,7 +745,7 @@
                 "pin": {
                     "type": "number",
                     "args": {
-                        "pin": "K6"
+                        "pin": "H2"
                     }
                 }
             },
