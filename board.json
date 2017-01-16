@@ -24,8 +24,7 @@
         "CTRL_PWR0": "CTRL_PWR0/gpio",
         "CFG1": "CFG1/gpio",
         "RST1": "RST1/gpio",
-        "CTRL_PWR1": "CTRL_PWR1/gpio",
-        "RS485_C_EN0": "RS485_C_EN0/gpio"
+        "CTRL_PWR1": "CTRL_PWR1/gpio"
     },
     "outputs": {
         "DIN0": "DIN0/gpio",
@@ -51,7 +50,9 @@
         "AVIN4": "ruff-adc/AVIN4",
         "AVIN5": "ruff-adc/AVIN5",
         "AVIN6": "ruff-adc/AVIN6",
-        "AVIN7": "ruff-adc/AVIN7"
+        "AVIN7": "ruff-adc/AVIN7",
+        "RS485-0": "RS485-0/rs485",
+        "RS485-1": "RS485-1/rs485"
     },
     "devices": [
         {
@@ -568,42 +569,6 @@
             }
         },
         {
-            "id": "UART5",
-            "model": "ruff-uart",
-            "driver": "mcu-uart",
-            "inputs": {
-                "device": {
-                    "type": "string",
-                    "args": {
-                        "path": "/dev/ttyS3"
-                    }
-                }
-            },
-            "outputs": {
-                "uart": {
-                    "type": "uart"
-                }
-            }
-        },
-        {
-            "id": "UART7",
-            "model": "ruff-uart",
-            "driver": "mcu-uart",
-            "inputs": {
-                "device": {
-                    "type": "string",
-                    "args": {
-                        "path": "/dev/ttyS5"
-                    }
-                }
-            },
-            "outputs": {
-                "uart": {
-                    "type": "uart"
-                }
-            }
-        },
-        {
             "id": "CFG0",
             "model": "ruff-gpio",
             "driver": "mcu-gpio",
@@ -658,82 +623,64 @@
             }
         },
         {
-            "id": "RS485_C_EN0",
-            "model": "ruff-gpio",
-            "driver": "mcu-gpio",
-            "inputs": {
-                "pin": {
-                    "type": "number",
-                    "args": {
-                        "pin": "K3"
-                    }
-                }
-            },
-            "outputs": {
-                "gpio": {
-                    "type": "gpio"
-                }
-            }
-        },
-        {
             "id": "RS485-0",
             "model": "rs485",
-            "driver": "rs485-uart",
-            "args": {
-                "txEnableControl": true,
-                "txActiveLevel": 1
+            "driver": "mcu-uart",
+            "inputs": {
+                "device": {
+                    "type": "string",
+                    "args": {
+                        "path": "/dev/ttyS3"
+                    }
+                },
+                "gpio": {
+                    "type": "string",
+                    "args": {
+                        "name": "K3",
+                        "polarity": true
+                    }
+                }
             },
-            "inputs": {
-                "uart": {
-                    "type": "uart",
-                    "bind": "UART5/uart",
-                    "args": {
-                        "baudRate": 9600,
-                        "stopBits": 1,
-                        "dataBits": 8,
-                        "parity": "none",
-                        "flowControl": "none"
-                    }
-                }
-            }
-        },
-        {
-            "id": "RS485_C_EN1",
-            "model": "ruff-gpio",
-            "driver": "mcu-gpio",
-            "inputs": {
-                "pin": {
-                    "type": "number",
-                    "args": {
-                        "pin": "K2"
-                    }
-                }
+            "args": {
+                "features": [
+                    "rs485"
+                ],
+                "type": "rs485"
             },
             "outputs": {
-                "gpio": {
-                    "type": "gpio"
+                "rs485": {
+                    "type": "rs485"
                 }
             }
         },
         {
             "id": "RS485-1",
             "model": "rs485",
-            "driver": "rs485-uart",
-            "args": {
-                "txEnableControl": true,
-                "txActiveLevel": 1
-            },
+            "driver": "mcu-uart",
             "inputs": {
-                "uart": {
-                    "type": "uart",
-                    "bind": "UART7/uart",
+                "device": {
+                    "type": "string",
                     "args": {
-                        "baudRate": 9600,
-                        "stopBits": 1,
-                        "dataBits": 8,
-                        "parity": "none",
-                        "flowControl": "none"
+                        "path": "/dev/ttyS5"
                     }
+                },
+                "gpio": {
+                    "type": "string",
+                    "args": {
+                        "name": "K2",
+                        "polarity": true
+                    }
+                }
+            },
+            "args": {
+                "features": [
+                    "rs485"
+                ],
+                "type": "rs485"
+            },
+            "outputs": {
+                "rs485": {
+                    "type": "rs485"
                 }
             }
         },
