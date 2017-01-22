@@ -49,10 +49,31 @@
             }
         },
         "PWR_PWM": {
-            "type": "power"
+            "type": "power",
+            "args": {
+                "voltage": "12v"
+            }
+        },
+        "PWR_DIN0": {
+            "type": "power",
+            "args": {
+                "voltage": "12v"
+            }
+        },
+        "PWR_DIN1": {
+            "type": "power",
+            "args": {
+                "voltage": "12v"
+            }
         }
     },
     "outputs": {
+        "PWR2_5V": "power/PWR2_5V",
+        "GND3": "ground/GND3",
+        "GND4": "ground/GND4",
+        "GND5": "ground/GND5",
+        "GND6": "ground/GND6",
+        "GND7": "ground/GND7",
         "DIN0": "DIN0/gpio",
         "DIN1": "DIN1/gpio",
         "DIN2": "DIN2/gpio",
@@ -69,14 +90,23 @@
         "DIN13": "DIN13/gpio",
         "DIN14": "DIN14/gpio",
         "DIN15": "DIN15/gpio",
-        "AVIN0": "ruff-adc/AVIN0",
-        "AVIN1": "ruff-adc/AVIN1",
-        "AVIN2": "ruff-adc/AVIN2",
-        "AVIN3": "ruff-adc/AVIN3",
-        "AVIN4": "ruff-adc/AVIN4",
-        "AVIN5": "ruff-adc/AVIN5",
-        "AVIN6": "ruff-adc/AVIN6",
-        "AVIN7": "ruff-adc/AVIN7",
+        "PWM0": "PWM0/pwm",
+        "PWM1": "PWM1/pwm",
+        "PWM2": "PWM2/pwm",
+        "PWM3": "PWM3/pwm",
+        "PWM4": "PWM4/pwm",
+        "PWM5": "PWM5/pwm",
+        "PWM6": "PWM6/pwm",
+        "PWM7": "PWM7/pwm",
+        "UART4": "UART4/uart",
+        "AVIN0": "ADC/AVIN0",
+        "AVIN1": "ADC/AVIN1",
+        "AVIN2": "ADC/AVIN2",
+        "AVIN3": "ADC/AVIN3",
+        "AVIN4": "ADC/AVIN4",
+        "AVIN5": "ADC/AVIN5",
+        "AVIN6": "ADC/AVIN6",
+        "AVIN7": "ADC/AVIN7",
         "RS485-0": "RS485-0/rs485",
         "RS485-1": "RS485-1/rs485"
     },
@@ -567,6 +597,150 @@
             "outputs": {
                 "gpio": {
                     "type": "gpio"
+                }
+            }
+        },
+        {
+            "id": "PWM0",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 0
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM1",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 1
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM2",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 2
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM3",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 3
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM4",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 4
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM5",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 5
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM6",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 6
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
+                }
+            }
+        },
+        {
+            "id": "PWM7",
+            "model": "ruff-pwm",
+            "driver": "mcu-pwm",
+            "inputs": {
+                "device": {
+                    "type": "number",
+                    "args": {
+                        "channel": 7
+                    }
+                }
+            },
+            "outputs": {
+                "pwm": {
+                    "type": "pwm"
                 }
             }
         },
