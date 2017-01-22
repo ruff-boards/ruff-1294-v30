@@ -58,13 +58,28 @@
         {
             "id": "ground",
             "outputs": {
-                "gnd-0": {
+                "GND0": {
                     "type": "ground"
                 },
-                "gnd-1": {
+                "GND1": {
                     "type": "ground"
                 },
-                "gnd-2": {
+                "GND3": {
+                    "type": "ground"
+                },
+                "GND4": {
+                    "type": "ground"
+                },
+                "GND5": {
+                    "type": "ground"
+                },
+                "GND6": {
+                    "type": "ground"
+                },
+                "GND7": {
+                    "type": "ground"
+                },
+                "GND_PWM": {
                     "type": "ground"
                 }
             }
@@ -72,22 +87,10 @@
         {
             "id": "power",
             "outputs": {
-                "vdd-0": {
+                "PWR2_5V": {
                     "type": "power",
                     "args": {
-                        "voltage": "24v"
-                    }
-                },
-                "vdd-1": {
-                    "type": "power",
-                    "args": {
-                        "voltage": "24v"
-                    }
-                },
-                "vdd-2": {
-                    "type": "power",
-                    "args": {
-                        "voltage": "24v"
+                        "voltage": "5v"
                     }
                 }
             }
@@ -163,7 +166,7 @@
             }
         },
         {
-            "id": "CTRL_LED0",
+            "id": "led-1",
             "model": "ruff-led-gpio",
             "driver": "led-gpio",
             "inputs": {
@@ -197,7 +200,7 @@
             }
         },
         {
-            "id": "CTRL_LED1",
+            "id": "led-2",
             "model": "ruff-led-gpio",
             "driver": "led-gpio",
             "inputs": {
@@ -231,7 +234,7 @@
             }
         },
         {
-            "id": "CTRL_BEEP",
+            "id": "beep",
             "model": "ruff-led-gpio",
             "driver": "led-gpio",
             "inputs": {
