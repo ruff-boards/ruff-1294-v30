@@ -26,47 +26,6 @@
         "RST1": "RST1/gpio",
         "CTRL_PWR1": "CTRL_PWR1/gpio"
     },
-    "inputs": {
-        "GND0": {
-            "type": "ground"
-        },
-        "GND1": {
-            "type": "ground"
-        },
-        "GND_PWM": {
-            "type": "ground"
-        },
-        "PWR0_24V": {
-            "type": "power",
-            "args": {
-                "voltage": "24v"
-            }
-        },
-        "PWR1_24V": {
-            "type": "power",
-            "args": {
-                "voltage": "24v"
-            }
-        },
-        "PWR_PWM": {
-            "type": "power",
-            "args": {
-                "voltage": "12v"
-            }
-        },
-        "PWR_DIN0": {
-            "type": "power",
-            "args": {
-                "voltage": "12v"
-            }
-        },
-        "PWR_DIN1": {
-            "type": "power",
-            "args": {
-                "voltage": "12v"
-            }
-        }
-    },
     "outputs": {
         "PWR2_5V": "power/PWR2_5V",
         "GND3": "ground/GND3",
