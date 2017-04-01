@@ -106,7 +106,7 @@
             "model": "ruff-adc",
             "driver": "mcu-adc",
             "args": {
-                "referenceVoltage": 5,
+                "referenceVoltage": 5.5,
                 "pinConfig": {
                     "AVIN0": 0,
                     "AVIN1": 1,
