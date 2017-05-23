@@ -21,10 +21,8 @@
         "DIN15": "DIN15/gpio",
         "CFG0": "CFG0/gpio",
         "RST0": "RST0/gpio",
-        "CTRL_PWR0": "CTRL_PWR0/gpio",
         "CFG1": "CFG1/gpio",
-        "RST1": "RST1/gpio",
-        "CTRL_PWR1": "CTRL_PWR1/gpio"
+        "RST1": "RST1/gpio"
     },
     "outputs": {
         "PWR2_5V": "power/PWR2_5V",
@@ -758,7 +756,7 @@
             }
         },
         {
-            "id": "CTRL_PWR0",
+            "id": "A7",
             "model": "ruff-gpio",
             "driver": "mcu-gpio",
             "inputs": {
@@ -772,6 +770,21 @@
             "outputs": {
                 "gpio": {
                     "type": "gpio"
+                }
+            }
+        },
+        {
+            "id": "pwr-0",
+            "model": "ruff-led-gpio",
+            "driver": "led-gpio",
+            "inputs": {
+                "gpio": {
+                    "type": "gpio",
+                    "bind": "A7/gpio",
+                    "args": {
+                        "direction": "out",
+                        "level": "low"
+                    }
                 }
             }
         },
@@ -874,7 +887,7 @@
             }
         },
         {
-            "id": "CTRL_PWR1",
+            "id": "A6",
             "model": "ruff-gpio",
             "driver": "mcu-gpio",
             "inputs": {
@@ -888,6 +901,21 @@
             "outputs": {
                 "gpio": {
                     "type": "gpio"
+                }
+            }
+        },
+        {
+            "id": "pwr-1",
+            "model": "ruff-led-gpio",
+            "driver": "led-gpio",
+            "inputs": {
+                "gpio": {
+                    "type": "gpio",
+                    "bind": "A6/gpio",
+                    "args": {
+                        "direction": "out",
+                        "level": "low"
+                    }
                 }
             }
         }
