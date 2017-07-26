@@ -1,14 +1,14 @@
 {
     "name": "ruff-1294-v30",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "description": "Ruff 1294 V30 Metadata",
     "author": "Nanchao Inc.",
     "dependencies": {
-		"rap-tm4c1294": "*"
+        "rap-tm4c1294": "*"
     },
     "ruff": {
         "dependencies": {
-            "led-gpio": "^2.0.0"
+            "led-gpio": "^3.0.0"
         }
     }
 }
